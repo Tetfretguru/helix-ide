@@ -1,0 +1,12 @@
+theme = "monokai"
+
+[keys.normal]
+"C-s" = ":w"              # Ctrl+S to save
+"C-q" = ":q"              # Ctrl+Q to quit
+"C-w" = ":buffer-close"   # Ctrl+W to close buffer
+"C-p" = "file_picker"     # Ctrl+P like VS Code to open file
+"C-c" = "yank_main_selection_to_clipboard"
+
+[keys.select]
+"C-x" = "normal_mode"     # Ctrl+C exits selection
+"C-c" = "yank_main_selection_to_clipboard"
