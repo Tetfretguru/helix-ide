@@ -2,13 +2,10 @@
 command = "ruff"
 args = ["server"]
 
-[language-server.pylsp]
-command = "pylsp"
-
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ruff", "pylsp"]
+language-servers = ["ruff"]
 formatter = { command = "ruff", args = ["format", "--stdin-filename", "%{buffer_name}", "-"] }
 
 [[language]]
