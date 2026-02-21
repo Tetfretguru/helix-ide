@@ -1,12 +1,77 @@
 theme = "monokai"
 
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste = true
+scroll-lines = 2
+shell = ["bash", "-lc"]
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+auto-completion = true
+auto-format = true
+true-color = true
+rulers = [88, 100]
+popup-border = "all"
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator", "read-only-indicator"]
+center = ["version-control"]
+right = ["diagnostics", "selections", "position", "position-percentage", "file-encoding", "file-line-ending", "file-type"]
+separator = "|"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+auto-signature-help = true
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+tab = "->"
+tabpad = " "
+
+[editor.indent-guides]
+render = true
+character = "|"
+skip-levels = 1
+
 [keys.normal]
-"C-s" = ":w"              # Ctrl+S to save
-"C-q" = ":q"              # Ctrl+Q to quit
-"C-w" = ":buffer-close"   # Ctrl+W to close buffer
-"C-p" = "file_picker"     # Ctrl+P like VS Code to open file
+"C-s" = ":w"
+"C-q" = ":q"
+"C-w" = ":buffer-close"
+"C-p" = "file_picker"
+"C-b" = "buffer_picker"
+"C-space" = "completion"
 "C-c" = "yank_main_selection_to_clipboard"
+"C-v" = "paste_clipboard_after"
+"A-up" = "move_line_up"
+"A-down" = "move_line_down"
 
 [keys.select]
-"C-x" = "normal_mode"     # Ctrl+C exits selection
+"C-x" = "normal_mode"
 "C-c" = "yank_main_selection_to_clipboard"
+
+[keys.insert]
+"C-s" = ":w"
+"C-c" = "normal_mode"

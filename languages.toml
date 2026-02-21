@@ -1,0 +1,25 @@
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.pylsp]
+command = "pylsp"
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["ruff", "pylsp"]
+formatter = { command = "ruff", args = ["format", "--stdin-filename", "%{buffer_name}", "-"] }
+
+[[language]]
+name = "bash"
+auto-format = true
+formatter = { command = "shfmt", args = ["-i", "2"] }
+
+[[language]]
+name = "toml"
+auto-format = true
+
+[[language]]
+name = "json"
+auto-format = true
