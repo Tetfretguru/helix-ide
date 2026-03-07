@@ -12,7 +12,18 @@ mkdir -p "$RUNTIME_DIR"
 mkdir -p "$CONFIG_DIR"
 
 echo "Installing latest Helix binary and runtime..."
-LATEST_URL="$(curl -s https://api.github.com/repos/helix-editor/helix/releases/latest | grep browser_download_url | grep linux-x86_64.tar.xz | cut -d '"' -f 4)"
+LATEST_URL="$(
+  curl -s https://api.github.com/repos/helix-editor/helix/releases/latest \
+    | grep browser_download_url \
+    | grep -E 'x86_64-linux\.tar\.xz|linux-x86_64\.tar\.xz' \
+    | cut -d '"' -f 4 \
+    | head -n 1
+)"
+
+if [[ -z "$LATEST_URL" ]]; then
+  echo "Could not find a compatible Linux x86_64 Helix release asset"
+  exit 1
+fi
 TMP_DIR="$(mktemp -d)"
 
 curl -L "$LATEST_URL" -o "$TMP_DIR/helix.tar.xz"
